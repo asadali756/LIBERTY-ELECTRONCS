@@ -1,0 +1,580 @@
+
+body{
+  font-family: 'Poppins';
+  justify-content: center;
+  background: linear-gradient(-45deg, #242526, #242526, #B39700, #242526, #242526);
+  animation: gradient 15s ease infinite;
+}
+nav{
+  position: fixed;
+  z-index: 99;
+  width: 100%; 
+  background:transparent;
+  margin-top: 0;
+  font-family: 'Poppins';
+}
+nav .wrapper{
+  position: relative;
+  max-width: 1300px;
+  padding: 0px 30px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .logo a{
+  color: #f2f2f2;
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.wrapper .nav-links{
+  display: inline-flex;
+  margin-top: 12.5px;
+}
+.nav-links li{
+  list-style: none;
+}
+.nav-links li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 9px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.nav-links li a:hover{
+  background: #fff;
+  color: #B39700;
+}
+.nav-links .mobile-item{
+  display: none;
+}
+.nav-links .drop-menu{
+  position: absolute;
+  background: #242526;
+  width: 180px;
+  line-height: 45px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.nav-links li:hover .drop-menu,
+.nav-links li:hover .mega-box{
+  transition: all 0.3s ease;
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.drop-menu li a{
+  width: 100%;
+  display: block;
+  padding: 0 0 0 15px;
+  font-weight: 400;
+  border-radius: 0px;
+}
+.mega-box{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0 30px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+}
+.mega-box .content{
+  background: #242526;
+  padding: 25px 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.mega-box .content .row{
+  width: calc(25% - 30px);
+  line-height: 45px;
+}
+.content .row img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.content .row header{
+  color: #B39700;
+  font-size: 20px;
+  font-weight: 600;
+}
+.content .row .mega-links{
+  margin-left: -40px;
+  border-left: 1px solid #B39700;
+}
+.row .mega-links li{
+  padding: 0 20px;
+}
+.row .mega-links li a{
+  padding: 0px;
+  padding: 0 20px;
+  color: #d9d9d9;
+  font-size: 17px;
+  display: block;
+}
+.row .mega-links li a:hover{
+  color: #B39700;
+}
+.wrapper .btn{
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+.wrapper .btn.close-btn{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+@media screen and (max-width: 970px) {
+  .wrapper .btn{
+    display: block;
+  }
+  .wrapper .nav-links{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 350px;
+    top: 0;
+    left: -100%;
+    background: #242526;
+    display: block;
+    padding: 50px 10px;
+    line-height: 50px;
+    overflow-y: auto;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+  }
+  /* custom scroll bar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #242526;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3A3B3C;
+  }
+  #menu-btn:checked ~ .nav-links{
+    left: 0%;
+  }
+  #menu-btn:checked ~ .btn.menu-btn{
+    display: none;
+  }
+  #close-btn:checked ~ .btn.menu-btn{
+    display: block;
+  }
+  .nav-links li{
+    margin: 15px 10px;
+  }
+  .nav-links li a{
+    padding: 0 20px;
+    display: block;
+    font-size: 20px;
+  }
+  .nav-links .drop-menu{
+    position: static;
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+    padding-left: 20px;
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+  #showDrop:checked ~ .drop-menu,
+  #showMega:checked ~ .mega-box{
+    max-height: 100%;
+  }
+  .nav-links .desktop-item{
+    display: none;
+  }
+  .nav-links .mobile-item{
+    display: block;
+    color: #f2f2f2;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .nav-links .mobile-item:hover{
+    background: #3A3B3C;
+  }
+  .drop-menu li{
+    margin: 0;
+  }
+  .drop-menu li a{
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .mega-box{
+    position: static;
+    top: 65px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .mega-box .content{
+    box-shadow: none;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+  }
+  .mega-box .content .row{
+    width: 100%;
+    margin-bottom: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mega-box .content .row:nth-child(1),
+  .mega-box .content .row:nth-child(2){
+    border-top: 0px;
+  }
+  .content .row .mega-links{
+    border-left: 0px;
+    padding-left: 15px;
+  }
+  .row .mega-links li{
+    margin: 0;
+  }
+  .content .row header{
+    font-size: 19px;
+  }
+}
+nav input{
+  display: none;
+}
+.login-7 {
+    top: 0;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    opacity: 1;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.login-7 .form-section {
+    max-width: 550px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 50px 30px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+
+.login-7 .form-section p{
+    color: #616161;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.login-7 .form-section a {
+    text-decoration: none;
+}
+
+.login-7 .form-section p a{
+    color: #616161;
+    font-weight: 500;
+}
+
+.login-7 .form-section .extra-login {
+    float: left;
+    width: 100%;
+    margin: 25px 0 25px;
+    text-align: center;
+    position: relative;
+}
+
+.login-7 .form-section .extra-login::before {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    height: 1px;
+    background: #d8dcdc;
+    content: "";
+}
+
+.login-7 .form-section .extra-login > span {
+    width: auto;
+    float: none;
+    display: inline-block;
+    background: #fff;
+    padding: 1px 20px;
+    z-index: 1;
+    position: relative;
+    font-size: 15px;
+    color: #616161;
+    text-transform: capitalize;
+}
+
+.login-7 .form-section ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.login-7 .logo-2 img{
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.login-7 .form-section .social-list li {
+    display: inline-block!important;
+    margin-bottom: 5px;
+}
+
+.login-7 .form-section .social-list li a {
+    font-size: 14px;
+    font-weight: 400;
+    width: 130px;
+    margin: 2px 0 3px 0;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Jost', sans-serif;
+}
+
+.login-7 .form-section .social-list li a i{
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    float: left;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.login-7 .form-section .social-list li a span{
+    margin-right: 7px;
+}
+
+.login-7 .form-section .thembo{
+    margin-left: 4px;
+}
+
+.login-7 .form-section h3 {
+    margin: 0 0 30px;
+    font-size: 25px;
+    font-weight: 400;
+    color: #313131;
+}
+
+.login-7 .form-section .form-group {
+    margin-bottom: 25px;
+}
+
+.login-7 .form-section .form-control {
+    float: left;
+    width: 100%;
+    padding: 12px 20px 12px 20px;
+}
+
+.login-7 .form-section .form-control {
+    font-size: 16px;
+    outline: none;
+    background: #e8e8e8;
+    color: #616161;
+    border-radius: 3px;
+    border: 1px solid #e8e8e8;
+}
+
+.login-7 .form-section .checkbox .terms{
+    margin-left: 3px;
+}
+
+.login-7 .form-section button:focus {
+    outline: none;
+    outline: 0 auto -webkit-focus-ring-color;
+}
+
+.login-7 .none-2{
+    display: none;
+}
+
+.login-7 .logo{
+    top: 40px;
+    position: absolute;
+    left: 65px;
+}
+
+.login-7 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Jost', sans-serif;
+}
+
+.login-7 .form-section .terms{
+    margin-left: 3px;
+}
+
+.login-7 .form-section .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-top: 0px;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* -webkit-print-color-adjust: exact;
+    color-adjust: exact; */
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    background-color: #e8e8e8;
+    margin-left: -22px;
+}
+
+.login-7 .form-section .checkbox {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.login-7 .form-section .form-check{
+    float: left;
+    margin-bottom: 0;
+}
+
+.login-7 .form-section .form-check a {
+    color: #616161;
+    float: right;
+}
+
+.login-7 .form-section .form-check-label {
+    padding-left: 5px;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #616161;
+}
+
+.login-7 .form-check-input:checked {
+    background-color: #242526;
+    border-color: #242526;
+}
+
+.login-7 .form-section a.forgot-password {
+    font-size: 16px;
+    color: #616161;
+    float: right;
+}
+
+.login-7 .btn-theme {
+    color: #fff;
+    text-align: center;
+    border: 2px solid transparent;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: all .7s ease;
+    border-radius: 3px;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Jost', sans-serif;
+    width: 100%;
+}
+
+.login-7 .btn-theme:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .7s ease;
+    z-index: -1;
+    border-radius: 3px;
+}
+
+.login-7 .btn-theme:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .7s ease;
+    z-index: -1;
+}
+
+.login-7 .btn-theme:hover {
+    background: transparent;
+}
+
+.login-7 .btn-theme:hover:before {
+    width: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.login-7 .btn-theme:hover:after {
+    width: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.login-7 .btn-lg{
+    padding: 0 50px;
+    line-height: 46px;
+}
+
+.login-7 .btn{
+    box-shadow: none!important;
+}
+
+.login-7 .btn-md{
+    padding: 0 45px;
+    line-height: 41px;
+}
+
+.login-7 .btn-primary {
+    background: #242526;
+}
+
+.login-7 .btn-primary:before {
+    background: #242526;
+}
+
+.login-7 .btn-primary:after {
+    background: #B39700;
+}
+
+.login-7 .btn-primary:hover {
+    color: #B39700;
+    border: 2px solid #B39700;
+}
+@media (max-width: 768px) {
+    .login-7 .form-section {
+        padding: 50px 30px;
+    }
+}
